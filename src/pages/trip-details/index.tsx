@@ -11,12 +11,12 @@ import { InviteGuestsModal } from "./send-emails-guests"
 import { api } from "../../lib/axios";
 import { useParams } from "react-router-dom";
 
-interface Participants {
-    id: string
-    name: string | null
-    email: string 
-    is_confirmed: boolean
-}
+// interface Participants {
+//     id: string
+//     name: string | null
+//     email: string 
+//     is_confirmed: boolean
+// }
 
 export function TripDetailsPage() {
     const [isCreateActivityModalOpen, setIsCreateActivityModalOpen] = useState(false)
@@ -24,7 +24,7 @@ export function TripDetailsPage() {
     const [isGuestsModalOpen, setIsGuestsModalOpen] = useState(false);
     const [emailsToInvite, setEmailsToInvite] = useState<string[]>([]);
     const { tripId } = useParams();
-    const [participants, setParticipants] = useState<Participants[]>([]);
+    // const [participants, setParticipants] = useState<Participants[]>([]);
 
     function openCreateActivityModal() {
         setIsCreateActivityModalOpen(true)
@@ -82,10 +82,10 @@ export function TripDetailsPage() {
     async function handleInviteGuests() {
         console.log("Inviting guests with emails:", emailsToInvite);
         await api.post(`/trips/${tripId}/invites`, { emails: emailsToInvite });
-        api.get(`/trips/${tripId}/participants`).then(response => {
-        setParticipants(response.data.participants);
-        setEmailsToInvite([]); 
-        setIsGuestsModalOpen(false); 
+        api.get(`/trips/${tripId}/participants`).then(() => {
+        // setParticipants(response.data.participants)
+        setEmailsToInvite([])
+        setIsGuestsModalOpen(false)
         })  
 
         window.document.location.reload()
