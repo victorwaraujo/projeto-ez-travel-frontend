@@ -18,7 +18,7 @@ export function RegisterPage() {
 
         try {
             await api.post('/register', { name, email, password });
-            navigate(`/login`);
+            navigate(`/`);
         } catch (error) {
             console.error("Registration failed", error);
         }
