@@ -20,7 +20,7 @@ export function LoginPage() {
             navigate(`/trips/${response.data.tripId}`);
         } else {
             // Continue na página de criar uma viagem se o usuário não for participante
-            navigate(`/tripPage`);
+            navigate(`/trip-page`);
         }
     } catch (error) {
         console.error("Login failed", error);
