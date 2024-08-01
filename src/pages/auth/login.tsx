@@ -13,7 +13,7 @@ export function LoginPage() {
     async function handleLogin(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     try {
-        const response = await api.post('/login', { email, password } )
+        const response = await api.post('/', { email, password } )
         console.log(response.data)
         if (response.data.participant) {
             // Redirecione para a tela de detalhes da viagem se o usuário for participante
