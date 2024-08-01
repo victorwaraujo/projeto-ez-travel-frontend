@@ -28,7 +28,7 @@ export function CreateActivityModal({
             occurs_at
         })
 
-        navigate(`/trips/${tripId}/activities`)
+        navigate(`/trips/${tripId}`)
     }
 
     return (
