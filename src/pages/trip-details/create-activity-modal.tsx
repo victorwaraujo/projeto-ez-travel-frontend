@@ -28,7 +28,7 @@ export function CreateActivityModal({
             occurs_at
         })
 
-        navigate(`/trips/${tripId}`)
+        window.document.location.reload()
     }
 
     return (
